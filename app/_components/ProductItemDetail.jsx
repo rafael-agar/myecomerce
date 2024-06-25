@@ -1,5 +1,5 @@
 'use client'
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import React from 'react'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
@@ -11,9 +11,7 @@ import { UpdateCartContext } from '../_context/UpdateCart'
 
 export default function ProductItemDetail({product}) {
 
-  const jwt=sessionStorage.getItem('jwt');
-  const user=JSON.parse(sessionStorage.getItem('user'));
-  const [bolivaresPrecio, setBolivaresPrecio] = useState(GlobalApi.getBolivares())
+  const [bolivaresPrecio, setBolivaresPrecio] = useState(null)
   const [updateCart, setUpdateCart] = useContext(UpdateCartContext);
   const [productTotalPrice, setProductTotalPrice] = useState(product.attributes.mrp)
   const [productQuantity, setProductQuantity] = useState(1)
@@ -22,45 +20,71 @@ export default function ProductItemDetail({product}) {
 
   const handleIncrement = () => {
     setProductQuantity((prevQuantity) => prevQuantity + 1);
+    setBolivaresPrecio((prevQuantity) => prevQuantity + 1);
   };
 
   const handleDecrement = () => {
     setProductQuantity((prevQuantity) => prevQuantity - 1);
+    setBolivaresPrecio((prevQuantity) => prevQuantity - 1);
   };
 
+  useEffect(() => {
+    const fetchDollarPrice = async () => {
+      const dollarPrice = await GlobalApi.getBolivares();
+      setBolivaresPrecio(dollarPrice);
+    };
+  
+    fetchDollarPrice();
+  }, []);
+
+  useEffect(() => {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    console.log('Carrito:', cart);
+  }, [updateCart]);
+  
   const addToCart = () => {
-    setLoading(true)
-    if(!jwt)
-      {
-          router.push('/sign-in');
-          setLoading(false)
-          return ;
-      }
-    
-    const data={
-      data:{
-        quantity:productQuantity,
-        amount:(productQuantity*productTotalPrice).toFixed(2),
-        productos:product.id,
-        users_permissions_user:user.id,
-        userId:user.id
-      }
+    // Obtener el carrito actual del localStorage
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  
+    // Verificar si el producto ya está en el carrito
+    const existingProductIndex = cart.findIndex(item => item.id === product.id);
+  
+    if (existingProductIndex !== -1) {
+      // Si el producto ya está en el carrito, actualizar la cantidad
+      cart[existingProductIndex].quantity += productQuantity;
+    } else {
+      // Si el producto no está en el carrito, agregarlo
+      cart.push({
+        id: product.id,
+        name: product.attributes.name,
+        price: product.attributes.mrp,
+        quantity: productQuantity,
+        image: product.attributes.image.data[0].attributes.url,
+      });
     }
-    console.log(data)
+  
+    // Guardar el carrito actualizado en el localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+  
+    // Mostrar un mensaje de éxito
+    toast('Producto agregado al carrito');
+  
+    // Actualizar el estado del carrito
+    setUpdateCart(!updateCart);
+  };
+  
+  const handleWhatsAppOrder = () => {
+    const message = GlobalApi.getWhatsAppMessage();
+    const whatsappUrl = `https://wa.me/+584244365933?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
 
-    GlobalApi.addToCart(data,jwt).then(resp=>{
-      console.log(resp);
-      toast('Producto Agregado al Carrito');
-      setUpdateCart(!updateCart);
-      setLoading(false)
-  },(e)=>{
-      toast('Error while adding into cart');
-      setLoading(false)
-
-  })
-
-
+  const  comprarAhora = () => {
+    addToCart()
+    handleWhatsAppOrder()
   }
+  
+  
 
   return (
     <div className='grid grid-cols-1 md:grid-cols-2 bg-white text-black'>
@@ -86,7 +110,7 @@ export default function ProductItemDetail({product}) {
             {/* $$ */}
             <h3 className='text-start font-bold text-3xl mt-5'>REF: <strong className='text-red-500'>${(productTotalPrice * productQuantity).toFixed(2)}</strong></h3>
             {/* BSF */}
-            <h3 className='text-start font-bold text-xl'>{bolivaresPrecio}</h3>
+            <h3 className='text-start font-bold text-xl'>Bs. {(bolivaresPrecio * productTotalPrice).toFixed(2)}</h3>
             <div className='flex flex-col sm:items-baseline gap-3'>
               <div className='p-2 sm:w-[200px] justify-center border-2 border flex items-center gap-10 px-5'>
                 <button disabled={productQuantity == 1} onClick={handleDecrement}>-</button>
@@ -97,8 +121,8 @@ export default function ProductItemDetail({product}) {
                 <ShoppingCart />
                 {loading?<LoaderCircle className='animate-spin' />:'Agregar al Carrito'}
               </Button>
-              <Button className='bg-black w-100 sm:w-[200px] gap-3 items-center justify-center text-white hover:bg-accent hover:text-accent-foreground'>
-                <ShoppingBasketIcon /> COMPRAR YA!
+              <Button onClick={comprarAhora} className='bg-black w-100 sm:w-[200px] gap-3 items-center justify-center text-white hover:bg-accent hover:text-accent-foreground'>
+                REALIZAR PEDIDO AHORA!
               </Button>
             </div>            
         </div>

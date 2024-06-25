@@ -30,33 +30,29 @@ import { toast } from'sonner'
 function Header() {
 
     const [categories, setCategories] = useState([])
-    const user=JSON.parse(sessionStorage.getItem('user'));
-    const jwt=sessionStorage.getItem('jwt');
-    const isLogin=sessionStorage.getItem('jwt')?true:false;
+    // const user=JSON.parse(sessionStorage.getItem('user'));
+    // const jwt=sessionStorage.getItem('jwt');
+    // const isLogin=sessionStorage.getItem('jwt')?true:false;
     const [totalCartItem,setTotalCartItem]=useState(0)
     const [cartItemList,setCartItemList]=useState([]);
+    // const [updateCart, setUpdateCart] = useState(0)
     const [updateCart, setUpdateCart] = useContext(UpdateCartContext);
-    console.log('cartItemList'+cartItemList)
+    // console.log('cartItemList'+cartItemList)
     const router = useRouter()
-
-    // useEffect(() => {
-    //     // Verifica si sessionStorage está disponible (en el cliente)
-    //     const isClient = typeof window !== 'undefined';
-    
-    //     if (isClient) {
-    //       const jwt = sessionStorage.getItem('jwt');
-    //       setIsLogin(!!jwt); // Establece isLogin según el valor de jwt
-    //     }
-    //   }, []);
-   
+  
     useEffect(() => {
         getCategoryList()
     }, [])
 
     // get cart items
-    useEffect(()=>{
-        getCartItems();
-    },[updateCart])
+    useEffect(() => {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        if (cart.length > 0) {
+            setCartItemList(cart)
+            setTotalCartItem(cart.length)
+        }
+        console.log('Carrito:', cart);
+      }, [updateCart]);
 
     // get category list
     const getCategoryList = () => {
@@ -69,25 +65,26 @@ function Header() {
      * Used to get Total Cart Item
      */
     const getCartItems = async () => {
-        if (user) {
-            const cartItemList_ = await GlobalApi.getCartItems(user.id, jwt);
-            console.log('ItemList_' + cartItemList_);
-            setTotalCartItem(cartItemList_?.length);
-            setCartItemList(cartItemList_);
-        }
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        setUpdateCart(cart)
     }
 
-    const onSignOut = () => {
-        sessionStorage.clear()
-        setTotalCartItem(0)
-        router.push('/sign-in')
-    }
+    // const onSignOut = () => {
+    //     sessionStorage.clear()
+    //     setTotalCartItem(0)
+    //     router.push('/sign-in')
+    // }
 
-    const onDeleteItem = (id) => {
-        GlobalApi.deleteCartItem(id, jwt).then(resp => {
-            toast('Producto removido!')
-            getCartItems()
-        })
+    const onDeleteItem = (itemId) => {
+        // GlobalApi.deleteCartItem(id, jwt).then(resp => {
+        //     toast('Producto removido!')
+        //     getCartItems()
+        // })
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const updatedCart = cart.filter((item) => item.id !== itemId);
+        localStorage.setItem('cart', JSON.stringify(updatedCart));
+        toast('Producto removido!')
+        getCartItems()
     }
 
 return (
@@ -147,7 +144,7 @@ return (
                 </SheetTrigger>
                 <SheetContent>
                     <SheetHeader>
-                    <SheetTitle className='bg-primary text-white font-bold text-lg p-2'>My Carro</SheetTitle>
+                    <SheetTitle className='bg-primary text-white font-bold text-lg p-2'>Mi Carrito</SheetTitle>
                     <SheetDescription>
                         <CartItemList cartItemList={cartItemList} onDeleteItem={onDeleteItem}/>
                     </SheetDescription>
@@ -156,7 +153,7 @@ return (
             </Sheet>
 
 
-            {!isLogin 
+            {/* {!isLogin 
                 ? <Link href={'/sign-in'}> <Button>Login</Button> </Link> 
                 : 
                 <DropdownMenu>
@@ -173,7 +170,7 @@ return (
                 </DropdownMenuContent>
                 </DropdownMenu>
 
-            }
+            } */}
         </div>
 
     </header>

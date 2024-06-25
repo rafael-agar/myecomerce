@@ -5,6 +5,7 @@ import "./globals.css";
 import Header from "./_components/Header";
 import { Toaster } from "@/components/ui/sonner";
 import { UpdateCartContext } from "./_context/UpdateCart";
+import Footer from "./_components/Footer";
 
 const roboto = Roboto({ 
   subsets: ["latin"],
@@ -21,13 +22,14 @@ export default function RootLayout({ children }) {
   const [updateCart, setUpdateCart] = useState(false);
   
   return (
-    <html lang="en">
+    <html lang="es">
       <body className={roboto.className}>
         <UpdateCartContext.Provider value={[updateCart,setUpdateCart]}>
           <Header />
           {children}
           <Toaster />
         </UpdateCartContext.Provider>
+        <Footer className="p-5 md:p-15 px-16" />
       </body>
     </html>
   );

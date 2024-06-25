@@ -2,7 +2,7 @@ import React from 'react'
 
 function Promos({ promoList }) {
   return (
-    <div className="container mx-auto py-2 lg:px-10 lg:pt-10">
+    <div className="container mx-auto py-2 lg:px-10 lg:pt-10 pb-10 mb-5">
       <div className="hidden md:block">
         <div className="-m-1 flex flex-wrap md:-m-2">
           <div className="flex w-1/2 flex-wrap">

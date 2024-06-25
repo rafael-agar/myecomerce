@@ -31,10 +31,10 @@ function ProductItem({product}) {
           <p className='text-center font-bold'>{product.attributes.name}</p>
           <h3 className='text-center text-red-500 font-bold text-xl'>${product.attributes.mrp}</h3>
           
-          <Button 
+          {/* <Button 
             className='text-center my-2 text-white bg-primary hover:bg-primary/80 hover:text-white'
             variant="outline">Agregar al Carrito
-          </Button>
+          </Button> */}
           </div>
         </DialogTrigger>
         <DialogContent>

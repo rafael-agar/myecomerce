@@ -5,10 +5,21 @@ const axiosClient = axios.create({
 })
 
 function getBolivares(){
-    return 36.5
+    return axios
+    .get('https://pydolarvenezuela-api.vercel.app/api/v1/dollar?page=bcv')
+    .then((response) => {
+      const dollarData = response.data.monitors.usd;
+      return dollarData.price;
+    })
+    .catch((error) => {
+      console.error('Error fetching dollar price:', error);
+      return null;
+    });
 }
 
 const getCategory = () => axiosClient.get('/categories?populate=*');
+
+const getCategoryById = (id) => axiosClient.get(`/categories/${id}`);
 
 const getSliders = () => axiosClient.get('/sliders?populate=*').then(resp => {
     return resp.data.data;
@@ -78,6 +89,22 @@ const deleteCartItem=(id,jwt)=>axiosClient.delete('/user-carts/'+id,{
     return resp.data.data
 })
 
+const getWhatsAppMessage = (userName) => {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let message = `Hola! Me gustaría realizar el siguiente pedido:\n\n`;
+  
+    cart.forEach((item, index) => {
+      message += `${index + 1}. ${item.name} (Cantidad: ${item.quantity})\n\n`;
+    });
+  
+    message += '¿Podrías confirmar el total y los detalles de envío?';
+    return message;
+  };
+  
+  
+  
+  
+
 export default {
     getBolivares,
     getCategory,
@@ -90,5 +117,7 @@ export default {
     addToCart,
     getCartItems,
     deleteCartItem,
-    getPromo
+    getPromo,
+    getCategoryById,
+    getWhatsAppMessage
 }

@@ -3,10 +3,15 @@ import ProductList from "./_components/ProductList";
 import Slider from "./_components/Slider";
 import GlobalApi from "./_utils/GlobalApi";
 import Image from "next/image";
-import Footer from "./_components/Footer";
 import Promos from "./_components/Promos";
+import ProductListbyCategory from "./_components/ProductListbyCategory";
 
-export default async function Home() {
+export const metadata = {
+  title: "MultimaxStore",
+  description: "!!!",
+};
+
+export default async function Home({params}) {
 
   const sliderList = await GlobalApi.getSliders();
   
@@ -36,10 +41,10 @@ export default async function Home() {
       {/* PROMOS */}
       <Promos promoList={promoList} />
       <div className="p-5 md:p-15 px-16">
-        <ProductList productList={productList} />
+        <ProductListbyCategory category="Aires" />
       </div>
 
-      <Footer className="p-5 md:p-15 px-16" />
+      
     </>
   );
 }
