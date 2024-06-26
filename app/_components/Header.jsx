@@ -149,12 +149,15 @@ return (
         {/* CARRITO */}
         <div className='flex gap-5 items-center'>
 
+            <Button variant="secondary">
+                <Link href='/productos'>Productos</Link>
+            </Button>
+
             {/* MENU */}
             <Menubar className='text-primary'>
             <MenubarMenu className='text-primary'>
                 <MenubarTrigger>Menú</MenubarTrigger>
                 <MenubarContent>
-                <Link href='/productos'><MenubarItem className='text-primary'>Productos</MenubarItem></Link>
                 <Link href='/tiendas'><MenubarItem className='text-primary'>Nuestras Tiendas</MenubarItem></Link>
                 <Link href='/notocias'><MenubarItem className='text-primary'>Noticias</MenubarItem></Link>
                 <MenubarSeparator />

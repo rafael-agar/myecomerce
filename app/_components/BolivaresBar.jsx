@@ -17,26 +17,26 @@ useEffect(() => {
     fetchDollarPrice();
   }, []);
 
-useEffect(() => {
-    const interval = setInterval(() => {
-      const currentDate = new Date();
-      const formattedDate = currentDate.toLocaleDateString(undefined, {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-      });
-      setCurrentDate(formattedDate);
-    }, 1000);
+// useEffect(() => {
+//     const interval = setInterval(() => {
+//       const currentDate = new Date();
+//       const formattedDate = currentDate.toLocaleDateString(undefined, {
+//         weekday: 'long',
+//         year: 'numeric',
+//         month: 'long',
+//         day: 'numeric'
+//       });
+//       setCurrentDate(formattedDate);
+//     }, 1000);
   
-    return () => clearInterval(interval);
-  }, []);
+//     return () => clearInterval(interval);
+//   }, []);
 
   return (
     
     <div className='flex flex-col items-center lg:flex lg:flex-row lg:justify-center mt-3'>
-    <p className='flex gap-2 items-center text-xs'>Cambio Oficial: <span className='font-bold'>Bs.{bolivaresPrecio}</span></p>
-    <p className='text-xs'> - {currentDate.toLocaleString()}</p>
+    <p className='flex gap-2 items-center text-xs'>Cambio Oficial: <span className='font-bold' suppressHydrationWarning>Bs.{bolivaresPrecio}</span></p>
+    {/* <p className='text-xs'> - {currentDate.toLocaleString()}</p> */}
     </div>
 
 
