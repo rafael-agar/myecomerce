@@ -87,6 +87,7 @@ export default function ProductItemDetail({product}) {
   
 
   return (
+<>
     <div className='grid grid-cols-1 md:grid-cols-2 bg-white text-black'>
         <div className='flex flex-col items-center mb-5'>
           <Image 
@@ -128,5 +129,41 @@ export default function ProductItemDetail({product}) {
         </div>
 
     </div>
+
+
+    {/* DESCRIPCION */}
+    <div className="relative flex flex-col justify-between w-full mt-10">
+    <div className="w-full">
+      <div className="flex flex-col w-full sm:flex-row">
+        <div className="w-full mb-5 sm:mb-0">
+          <div className="relative h-full ml-0 mr-0 sm:mr-10">
+            <span className="absolute top-0 left-0 w-full h-full mt-1 ml-1 bg-primary rounded-lg"></span>
+            <div className="relative h-full p-5 bg-white border-2 border-indigo-500 rounded-lg">
+              <div className="flex items-center -mt-1 justify-center">
+                <h3 className="my-2 ml-3 text-lg font-bold text-gray-800 text-center">Descripción</h3>
+              </div>
+              <p className="mt-3 mb-1 text-center text-xs font-medium text-indigo-500 uppercase">------------</p>
+              <p className="text-gray-600 text-center">
+              
+              
+Material de calidad.
+Ahorro de energía.
+Corriente 110V.
+Con gabinete incluido.
+Compresor y gas R-134.
+Dispensador de agua fría, agua caliente y natural.
+Dimensiones aproximadas: Altura: 99 cm. Ancho: 30 cm. Profundidad: 32 cm.
+
+
+
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+</>
+
   )
 }

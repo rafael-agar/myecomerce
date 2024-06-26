@@ -5,6 +5,7 @@ import GlobalApi from "./_utils/GlobalApi";
 import Image from "next/image";
 import Promos from "./_components/Promos";
 import ProductListbyCategory from "./_components/ProductListbyCategory";
+import Posts from "./_components/Posts";
 
 export const metadata = {
   title: "MultimaxStore",
@@ -43,6 +44,9 @@ export default async function Home({params}) {
       <div className="p-5 md:p-15 px-16">
         <ProductListbyCategory category="Aires" />
       </div>
+      <article className="p-5 md:p-15 px-16">
+        <Posts />
+      </article>
 
       
     </>

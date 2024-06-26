@@ -23,6 +23,16 @@ import {
     SheetTitle,
     SheetTrigger,
   } from "@/components/ui/sheet"
+  import {
+    Menubar,
+    MenubarContent,
+    MenubarItem,
+    MenubarMenu,
+    MenubarSeparator,
+    MenubarShortcut,
+    MenubarTrigger,
+  } from "@/components/ui/menubar"
+  
 import CartItemList from './CartItemList'
 import { toast } from'sonner'
   
@@ -60,7 +70,6 @@ function Header() {
             setCategories(resp.data.data)
         })
     }
-
         /**
      * Used to get Total Cart Item
      */
@@ -86,6 +95,9 @@ function Header() {
         toast('Producto removido!')
         getCartItems()
     }
+      
+      
+      
 
 return (
     <header className='p-5 shadow-md flex justify-between'>
@@ -126,14 +138,34 @@ return (
                 </DropdownMenuContent>
                 </DropdownMenu>
 
-
-            <div className='md:flex gap-3 items-center border rounded-full p-2 hidden'>
+            {/* SEARCH */}
+            {/* <div className='md:flex gap-3 items-center border rounded-full p-2 hidden'>
                 <Search/>
                 <input type='text' placeholder='Buscar' className='outline-none' />
-            </div>
+            </div> */}
+
         </div>
 
+        {/* CARRITO */}
         <div className='flex gap-5 items-center'>
+
+            {/* MENU */}
+            <Menubar className='text-primary'>
+            <MenubarMenu className='text-primary'>
+                <MenubarTrigger>Menú</MenubarTrigger>
+                <MenubarContent>
+                <Link href='/productos'><MenubarItem className='text-primary'>Productos</MenubarItem></Link>
+                <Link href='/tiendas'><MenubarItem className='text-primary'>Nuestras Tiendas</MenubarItem></Link>
+                <Link href='/notocias'><MenubarItem className='text-primary'>Noticias</MenubarItem></Link>
+                <MenubarSeparator />
+                <Link href='/afiliacion'><MenubarItem className='text-primary'>Afiliación</MenubarItem></Link>
+                <Link href='/credimax'><MenubarItem className='text-primary'>CREDIMAX PRIORITYMAX</MenubarItem></Link>
+                <MenubarSeparator />
+                <Link href='/contacto'><MenubarItem className='text-primary'>Contacto</MenubarItem></Link>
+                </MenubarContent>
+            </MenubarMenu>
+            </Menubar>
+
             
             <Sheet>
                 <SheetTrigger>
@@ -172,7 +204,7 @@ return (
 
             } */}
         </div>
-
+        
     </header>
   )
 }

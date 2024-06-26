@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/carousel"
 import Image from 'next/image'
 import Autoplay from 'embla-carousel-autoplay'
+import BolivaresBar from './BolivaresBar'
 
 function Slider({ sliderList }) {
   const autoplayPlugin = useRef(Autoplay({ delay: 5000}))
@@ -39,6 +40,8 @@ function Slider({ sliderList }) {
         <CarouselPrevious />
         <CarouselNext />
       </Carousel>
+
+      <BolivaresBar />
     </>
   )
 }
