@@ -6,7 +6,7 @@ import GlobalApi from '../_utils/GlobalApi';
 function BolivaresBar() {
 
     const [bolivaresPrecio, setBolivaresPrecio] = useState(null)
-const [currentDate, setCurrentDate] = useState(new Date());
+// const [currentDate, setCurrentDate] = useState(new Date());
 
 useEffect(() => {
     const fetchDollarPrice = async () => {

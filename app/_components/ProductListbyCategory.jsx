@@ -4,7 +4,7 @@
 import React, { useState, useEffect } from 'react';
 import GlobalApi from '../_utils/GlobalApi';
 import ProductList from './ProductList';
-import ProductItem from './ProductItem'
+import ProductItem2 from './ProductItem'
 
 const ProductsByCategory = ({ category }) => {
   const [products, setProducts] = useState([]);
@@ -25,7 +25,7 @@ const ProductsByCategory = ({ category }) => {
         </h2>
         <div className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-5 mt-10'>
             {products.map((product, index) => (
-                <ProductItem product={product} key={index} />
+                <ProductItem2 product={product} key={index} />
             ))}
         </div>
     </section>

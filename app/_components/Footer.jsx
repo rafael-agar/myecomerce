@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { FloatingWhatsApp } from 'react-floating-whatsapp'
 
 function Footer() {
   return (
@@ -83,6 +84,17 @@ function Footer() {
         </div>
       </div>
     </div>
+
+    <div className='flex justify-start'>
+    <FloatingWhatsApp 
+      phoneNumber={"+584244365933"} 
+      chatMessage="Hola, ¿en qué puedo ayudarte?"
+      avatar='http://localhost:3000/_next/image?url=%2FMultimax_Store_logo.png&w=256&q=75'
+      accountName="Multimax Store"
+      statusMessage="Solemos resonder en menos de 5 minutos"
+    />
+    </div>
+
     </footer>
   )
 }
