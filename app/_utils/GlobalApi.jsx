@@ -1,7 +1,7 @@
 const { default: axios } = require("axios")
 
 const axiosClient = axios.create({
-    baseURL: 'http://192.168.1.17:1337/api'
+    baseURL: 'https://intuitive-deer-70ddaad1ab.strapiapp.com/api'
 })
 
 function getBolivares(){

@@ -45,7 +45,7 @@ export default async function Home({params}) {
         <ProductListbyCategory category="Aires" />
       </div>
       <article className="p-5 md:p-15 px-16">
-        <Posts />
+        {/* <Posts /> */}
       </article>
 
       
