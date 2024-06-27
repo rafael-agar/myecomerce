@@ -91,7 +91,7 @@ export default function ProductItemDetail({product}) {
     <div className='grid grid-cols-1 md:grid-cols-2 bg-white text-black'>
         <div className='flex flex-col items-center mb-5'>
           <Image 
-              src={`${process.env.NEXT_PUBLIC_API_URL}${product.attributes.image.data[0].attributes.url}`} 
+              src={product.attributes.image.data[0].attributes.url}
               width={300}
               height={300}
               alt={product.attributes.name}

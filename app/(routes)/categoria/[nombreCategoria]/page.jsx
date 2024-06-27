@@ -5,7 +5,7 @@ import ProductList from '@/app/_components/ProductList';
 import Posts from '@/app/_components/Posts';
 
 export const metadata = {
-  title: "MultimaxStore",
+  title: "MultimaxStore - Productos",
   description: "!!!",
 };
 

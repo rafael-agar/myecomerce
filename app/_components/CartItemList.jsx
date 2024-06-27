@@ -43,7 +43,7 @@ function CartItemList({cartItemList, onDeleteItem}) {
             {cartItemList.map((cart,index)=>(
                 <div className='flex justify-between items-start p-2 mb-5'>
                     <div className='flex gap-6 items-center'>
-                    <Image src={`${process.env.NEXT_PUBLIC_API_URL}${cart.image}`}
+                    <Image src={cart.image}
                     width={90} height={90} 
                     alt={cart.name}
                     className='border p-2'

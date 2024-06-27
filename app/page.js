@@ -24,7 +24,7 @@ export default async function Home({params}) {
 
   return (
     <>
-      <main className="p-5 md:p-15 px-16">
+      <main className="p-5 md:p-15 px-auto">
         {/* Slider */}
         <Slider sliderList={sliderList} />
         {/* Category List */}
@@ -41,11 +41,11 @@ export default async function Home({params}) {
       {/* SPECIFIC CATEGORY */}
       {/* PROMOS */}
       <Promos promoList={promoList} />
-      <div className="p-5 md:p-15 px-16">
+      <div className="p-5 md:p-15">
         <ProductListbyCategory category="Aires" />
       </div>
-      <article className="p-5 md:p-15 px-16">
-        {/* <Posts /> */}
+      <article className="p-5 md:p-15">
+        <Posts />
       </article>
 
       

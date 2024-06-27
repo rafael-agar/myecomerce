@@ -27,7 +27,7 @@ function Slider({ sliderList }) {
             <CarouselItem key={index}>
               {slider.attributes.image.data[0].attributes.url && (
                 <Image
-                  src={`${process.env.NEXT_PUBLIC_API_URL}${slider.attributes.image.data[0].attributes.url}`}
+                  src={slider.attributes.image.data[0].attributes.url}
                   alt='icon'
                   width={1000}
                   height={400}

@@ -2,7 +2,7 @@ import React from 'react'
 
 function Promos({ promoList }) {
   return (
-    <div className="container mx-auto py-2 lg:px-10 lg:pt-10 pb-10 mb-5">
+    <div className="container mx-auto py-2 lg:px-5 px-0 lg:pt-10 pb-10 mb-5">
       <div className="hidden md:block">
         <div className="-m-1 flex flex-wrap md:-m-2">
           <div className="flex w-1/2 flex-wrap">
@@ -11,7 +11,7 @@ function Promos({ promoList }) {
                 <img
                   alt={promoList[0].attributes.name}
                   className="block h-full w-full rounded-lg object-cover object-center"
-                  src={`${process.env.NEXT_PUBLIC_API_URL}${promoList[0].attributes.image.data[0].attributes.url}`}
+                  src={promoList[0].attributes.image.data[0].attributes.url}
                 />
               )}
             </div>
@@ -20,7 +20,7 @@ function Promos({ promoList }) {
                 <img
                   alt={promoList[1].attributes.name}
                   className="block h-full w-full rounded-lg object-cover object-center"
-                  src={`${process.env.NEXT_PUBLIC_API_URL}${promoList[1].attributes.image.data[0].attributes.url}`}
+                  src={promoList[1].attributes.image.data[0].attributes.url}
                 />
               )}
             </div>
@@ -29,7 +29,7 @@ function Promos({ promoList }) {
                 <img
                   alt={promoList[2].attributes.name}
                   className="block h-full w-full rounded-lg object-cover object-center"
-                  src={`${process.env.NEXT_PUBLIC_API_URL}${promoList[2].attributes.image.data[0].attributes.url}`}
+                  src={promoList[2].attributes.image.data[0].attributes.url}
                 />
               )}
             </div>
@@ -40,7 +40,7 @@ function Promos({ promoList }) {
                 <img
                   alt={promoList[3].attributes.name}
                   className="block h-full w-full rounded-lg object-cover object-center"
-                  src={`${process.env.NEXT_PUBLIC_API_URL}${promoList[3].attributes.image.data[0].attributes.url}`}
+                  src={promoList[3].attributes.image.data[0].attributes.url}
                 />
               )}
             </div>
@@ -49,7 +49,7 @@ function Promos({ promoList }) {
                 <img
                   alt={promoList[4].attributes.name}
                   className="block h-full w-full rounded-lg object-cover object-center"
-                  src={`${process.env.NEXT_PUBLIC_API_URL}${promoList[4].attributes.image.data[0].attributes.url}`}
+                  src={promoList[4].attributes.image.data[0].attributes.url}
                 />
               )}
             </div>
@@ -58,7 +58,7 @@ function Promos({ promoList }) {
                 <img
                   alt={promoList[5].attributes.name}
                   className="block h-full w-full rounded-lg object-cover object-center"
-                  src={`${process.env.NEXT_PUBLIC_API_URL}${promoList[5].attributes.image.data[0].attributes.url}`}
+                  src={promoList[5].attributes.image.data[0].attributes.url}
                 />
               )}
             </div>
@@ -73,7 +73,7 @@ function Promos({ promoList }) {
               <img
                 alt={promo.attributes.name}
                 className="block h-full w-full rounded-lg object-cover object-center"
-                src={`${process.env.NEXT_PUBLIC_API_URL}${promo.attributes.image.data[0].attributes.url}`}
+                src={promo.attributes.image.data[0].attributes.url}
               />
             </div>
           </div>

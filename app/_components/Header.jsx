@@ -121,7 +121,7 @@ return (
                         <DropdownMenuItem key={index} className="flex gap-2 items-center">
                         {category?.attributes?.icon?.data[0].attributes?.url && (
                             <Image
-                                src={`${process.env.NEXT_PUBLIC_API_URL}${category.attributes.icon.data[0].attributes.url}`}
+                                src={category.attributes.icon.data[0].attributes.url}
                                 unoptimized={true}
                                 alt="icon"
                                 width={20}
@@ -147,17 +147,14 @@ return (
         </div>
 
         {/* CARRITO */}
-        <div className='flex gap-5 items-center'>
-
-            <Button variant="secondary">
-                <Link href='/productos'>Productos</Link>
-            </Button>
+        <div className='flex gap-5 items-center ps-3'>
 
             {/* MENU */}
             <Menubar className='text-primary'>
             <MenubarMenu className='text-primary'>
                 <MenubarTrigger>Menú</MenubarTrigger>
                 <MenubarContent>
+                <Link href='/productos'><MenubarItem className="bg-secondary">Productos</MenubarItem></Link>
                 <Link href='/tiendas'><MenubarItem className='text-primary'>Nuestras Tiendas</MenubarItem></Link>
                 <Link href='/notocias'><MenubarItem className='text-primary'>Noticias</MenubarItem></Link>
                 <MenubarSeparator />
@@ -177,7 +174,7 @@ return (
                         <span className='bg-primary text-white px-2 rounded-full'>{totalCartItem}</span>
                     </p>
                 </SheetTrigger>
-                <SheetContent>
+                <SheetContent side='left'>
                     <SheetHeader>
                     <SheetTitle className='bg-primary text-white font-bold text-lg p-2'>Mi Carrito</SheetTitle>
                     <SheetDescription>

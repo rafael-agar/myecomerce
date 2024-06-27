@@ -85,8 +85,8 @@ function Footer() {
       </div>
     </div>
 
-    <div className='flex justify-start'>
-    <FloatingWhatsApp 
+    <div className='flex'>
+    <FloatingWhatsApp
       phoneNumber={"+584244365933"} 
       chatMessage="Hola, ¿en qué puedo ayudarte?"
       avatar=''

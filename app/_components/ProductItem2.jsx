@@ -22,7 +22,7 @@ function ProductItem2({product}) {
       <Dialog>
         <DialogTrigger asChild>
           <div className='flex flex-col items-center justify-center cursor-pointer'>
-          <Image src={`${process.env.NEXT_PUBLIC_API_URL}${product.attributes.image.data[0].attributes.url}`} 
+          <Image src={product.attributes.image.data[0].attributes.url}
           alt={product.attributes.name}
           className="w-[200px] h-[200px] rounded-lg object-scale-down"
           width={400}
