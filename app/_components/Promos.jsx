@@ -11,7 +11,7 @@ function Promos({ promoList }) {
                 <img
                   alt={promoList[0].attributes.name}
                   className="block h-full w-full rounded-lg object-cover object-center"
-                  src={`http://localhost:1337${promoList[0].attributes.image.data[0].attributes.url}`}
+                  src={`${process.env.NEXT_PUBLIC_API_URL}${promoList[0].attributes.image.data[0].attributes.url}`}
                 />
               )}
             </div>
@@ -20,7 +20,7 @@ function Promos({ promoList }) {
                 <img
                   alt={promoList[1].attributes.name}
                   className="block h-full w-full rounded-lg object-cover object-center"
-                  src={`http://localhost:1337${promoList[1].attributes.image.data[0].attributes.url}`}
+                  src={`${process.env.NEXT_PUBLIC_API_URL}${promoList[1].attributes.image.data[0].attributes.url}`}
                 />
               )}
             </div>
@@ -29,7 +29,7 @@ function Promos({ promoList }) {
                 <img
                   alt={promoList[2].attributes.name}
                   className="block h-full w-full rounded-lg object-cover object-center"
-                  src={`http://localhost:1337${promoList[2].attributes.image.data[0].attributes.url}`}
+                  src={`${process.env.NEXT_PUBLIC_API_URL}${promoList[2].attributes.image.data[0].attributes.url}`}
                 />
               )}
             </div>
@@ -40,7 +40,7 @@ function Promos({ promoList }) {
                 <img
                   alt={promoList[3].attributes.name}
                   className="block h-full w-full rounded-lg object-cover object-center"
-                  src={`http://localhost:1337${promoList[3].attributes.image.data[0].attributes.url}`}
+                  src={`${process.env.NEXT_PUBLIC_API_URL}${promoList[3].attributes.image.data[0].attributes.url}`}
                 />
               )}
             </div>
@@ -49,7 +49,7 @@ function Promos({ promoList }) {
                 <img
                   alt={promoList[4].attributes.name}
                   className="block h-full w-full rounded-lg object-cover object-center"
-                  src={`http://localhost:1337${promoList[4].attributes.image.data[0].attributes.url}`}
+                  src={`${process.env.NEXT_PUBLIC_API_URL}${promoList[4].attributes.image.data[0].attributes.url}`}
                 />
               )}
             </div>
@@ -58,7 +58,7 @@ function Promos({ promoList }) {
                 <img
                   alt={promoList[5].attributes.name}
                   className="block h-full w-full rounded-lg object-cover object-center"
-                  src={`http://localhost:1337${promoList[5].attributes.image.data[0].attributes.url}`}
+                  src={`${process.env.NEXT_PUBLIC_API_URL}${promoList[5].attributes.image.data[0].attributes.url}`}
                 />
               )}
             </div>
@@ -73,7 +73,7 @@ function Promos({ promoList }) {
               <img
                 alt={promo.attributes.name}
                 className="block h-full w-full rounded-lg object-cover object-center"
-                src={`http://localhost:1337${promo.attributes.image.data[0].attributes.url}`}
+                src={`${process.env.NEXT_PUBLIC_API_URL}${promo.attributes.image.data[0].attributes.url}`}
               />
             </div>
           </div>

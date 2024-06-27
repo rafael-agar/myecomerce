@@ -89,7 +89,7 @@ function Footer() {
     <FloatingWhatsApp 
       phoneNumber={"+584244365933"} 
       chatMessage="Hola, ¿en qué puedo ayudarte?"
-      avatar='http://localhost:3000/_next/image?url=%2FMultimax_Store_logo.png&w=256&q=75'
+      avatar=''
       accountName="Multimax Store"
       statusMessage="Solemos resonder en menos de 5 minutos"
     />
