@@ -6,7 +6,7 @@ import Posts from '@/app/_components/Posts';
 
 export const metadata = {
   title: "MultimaxStore - Productos",
-  description: "!!!",
+  description: "Variedad de productos en todo el pais",
 };
 
 async function categoria({params}) {

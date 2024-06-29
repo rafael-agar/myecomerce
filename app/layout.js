@@ -1,15 +1,15 @@
 "use client"
 import { useState } from "react";
-import { Roboto } from "next/font/google";
+import { Share } from "next/font/google";
 import "./globals.css";
 import Header from "./_components/Header";
 import { Toaster } from "@/components/ui/sonner";
 import { UpdateCartContext } from "./_context/UpdateCart";
 import Footer from "./_components/Footer";
 
-const roboto = Roboto({ 
+const share = Share({ 
   subsets: ["latin"],
-  weight: '400'
+  weight: '700'
 });
 
 // export const metadata = {
@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
   
   return (
     <html lang="es">
-      <body className={roboto.className}>
+      <body className={share.className}>
         <UpdateCartContext.Provider value={[updateCart,setUpdateCart]}>
           <Header />
           {children}

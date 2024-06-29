@@ -10,6 +10,12 @@ import {
     DropdownMenuLabel,
     DropdownMenuSeparator,
     DropdownMenuTrigger,
+    DropdownMenuPortal,
+    DropdownMenuSubContent,
+    DropdownMenuSub,
+    DropdownMenuSubTrigger,
+    DropdownMenuGroup,
+    DropdownMenuShortcut
   } from "@/components/ui/dropdown-menu"
 import GlobalApi from '../_utils/GlobalApi'
 import Link from 'next/link'
@@ -100,6 +106,7 @@ function Header() {
       
 
 return (
+    
     <header className='p-5 shadow-md flex justify-between'>
         <div className='flex items-center gap-8'>
             <Link href='/'><Image src='/Multimax_Store_logo.png' alt='logo' width={200} height={150}/></Link>
@@ -139,10 +146,20 @@ return (
                 </DropdownMenu>
 
             {/* SEARCH */}
-            {/* <div className='md:flex gap-3 items-center border rounded-full p-2 hidden'>
-                <Search/>
-                <input type='text' placeholder='Buscar' className='outline-none' />
-            </div> */}
+            <div className="flex flex-col items-center md:flex-row md:justify-center">
+            <div className="md:flex gap-3 items-center border rounded-full p-2 hidden md:flex">
+              <Search />
+              <input
+                type="text"
+                placeholder="Buscar"
+                className="outline-none"
+              />
+            </div>
+            <div className="flex gap-3 items-center border rounded-full p-2 md:hidden">
+              <Search />
+            </div>
+
+          </div>
 
         </div>
 
@@ -150,7 +167,7 @@ return (
         <div className='flex gap-5 items-center ps-3'>
 
             {/* MENU */}
-            <Menubar className='text-primary'>
+            {/* <Menubar className='text-primary'>
             <MenubarMenu className='text-primary'>
                 <MenubarTrigger>Menú</MenubarTrigger>
                 <MenubarContent>
@@ -158,31 +175,33 @@ return (
                 <Link href='/tiendas'><MenubarItem className='text-primary'>Nuestras Tiendas</MenubarItem></Link>
                 <Link href='/notocias'><MenubarItem className='text-primary'>Noticias</MenubarItem></Link>
                 <MenubarSeparator />
+                
                 <Link href='/afiliacion'><MenubarItem className='text-primary'>Afiliación</MenubarItem></Link>
                 <Link href='/credimax'><MenubarItem className='text-primary'>CREDIMAX PRIORITYMAX</MenubarItem></Link>
                 <MenubarSeparator />
                 <Link href='/contacto'><MenubarItem className='text-primary'>Contacto</MenubarItem></Link>
                 </MenubarContent>
             </MenubarMenu>
-            </Menubar>
+            </Menubar> */}
 
-            
-            <Sheet>
-                <SheetTrigger>
-                    <p className='flex gap-2 items-center text-lg'> 
-                        <ShoppingCart/>
-                        <span className='bg-primary text-white px-2 rounded-full'>{totalCartItem}</span>
-                    </p>
-                </SheetTrigger>
-                <SheetContent side='left'>
-                    <SheetHeader>
-                    <SheetTitle className='bg-primary text-white font-bold text-lg p-2'>Mi Carrito</SheetTitle>
-                    <SheetDescription>
-                        <CartItemList cartItemList={cartItemList} onDeleteItem={onDeleteItem}/>
-                    </SheetDescription>
-                    </SheetHeader>
-                </SheetContent>
-            </Sheet>
+
+           
+        <Sheet>
+            <SheetTrigger>
+                <p className='flex gap-2 items-center text-lg'> 
+                    <ShoppingCart/>
+                    <span className='bg-primary text-white px-2 rounded-full'>{totalCartItem}</span>
+                </p>
+            </SheetTrigger>
+            <SheetContent side='left'>
+                <SheetHeader>
+                <SheetTitle className='bg-primary text-white font-bold text-lg p-2'>Mi Carrito</SheetTitle>
+                <SheetDescription>
+                    <CartItemList cartItemList={cartItemList} onDeleteItem={onDeleteItem}/>
+                </SheetDescription>
+                </SheetHeader>
+            </SheetContent>
+        </Sheet>
 
 
             {/* {!isLogin 
@@ -203,6 +222,90 @@ return (
                 </DropdownMenu>
 
             } */}
+            
+    <DropdownMenu>
+      <DropdownMenuTrigger className='bg-secondary' asChild>
+        <Button variant="outline">Menú</Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="w-56">
+        
+        <DropdownMenuGroup>
+          <DropdownMenuItem>
+          <Link href='/productos'>Productos</Link>
+          </DropdownMenuItem>
+
+        </DropdownMenuGroup>
+
+        <DropdownMenuSeparator />
+
+        <DropdownMenuGroup>
+          <DropdownMenuSub>
+            <DropdownMenuSubTrigger>
+              {/* <UserPlus className="mr-2 h-4 w-4" /> */}
+              <span>Nuestras Tiendas</span>
+            </DropdownMenuSubTrigger>
+            
+            {/* TIENDAS */}
+            <DropdownMenuPortal>
+              <DropdownMenuSubContent>
+                <DropdownMenuItem>
+                  {/* <Mail className="mr-2 h-4 w-4" /> */}
+                  <Link href='/tiendas'>Barinas</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  {/* <MessageSquare className="mr-2 h-4 w-4" /> */}
+                  <span>Caracas</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  {/* <MessageSquare className="mr-2 h-4 w-4" /> */}
+                  <span>Carabobo</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  {/* <MessageSquare className="mr-2 h-4 w-4" /> */}
+                  <span>Lara</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  {/* <MessageSquare className="mr-2 h-4 w-4" /> */}
+                  <span>Zulia</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  {/* <MessageSquare className="mr-2 h-4 w-4" /> */}
+                  <span>Monagas</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  {/* <MessageSquare className="mr-2 h-4 w-4" /> */}
+                  <span>Miranda</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  {/* <MessageSquare className="mr-2 h-4 w-4" /> */}
+                  <span>Yaracuy</span>
+                </DropdownMenuItem>
+              </DropdownMenuSubContent>
+            </DropdownMenuPortal>
+          </DropdownMenuSub>
+            {/* END TIENDAS */}
+
+        </DropdownMenuGroup>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem>
+          {/* <Github className="mr-2 h-4 w-4" /> */}
+          <Link href='/noticias'>Productos</Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem>
+          {/* <LifeBuoy className="mr-2 h-4 w-4" /> */}
+          <Link href='/afiliacion'>Afiliación</Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem>
+          {/* <Cloud className="mr-2 h-4 w-4" /> */}
+          <Link href='/credimax'>CREDIMAX PRIORITYMAX</Link>
+        </DropdownMenuItem>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem>
+          {/* <LogOut className="mr-2 h-4 w-4" /> */}
+          <Link href='/contacto'>Contacto</Link>
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
         </div>
         
     </header>

@@ -6,6 +6,7 @@ import Image from "next/image";
 import Promos from "./_components/Promos";
 import ProductListbyCategory from "./_components/ProductListbyCategory";
 import Posts from "./_components/Posts";
+import ChatbotScript from "./_components/ChatbotScript";
 
 export const metadata = {
   title: "MultimaxStore",
@@ -47,8 +48,9 @@ export default async function Home({params}) {
       <article className="p-5 md:p-15">
         <Posts />
       </article>
-
-      
+      <div className="mb-10">
+        <ChatbotScript />
+      </div>
     </>
   );
 }

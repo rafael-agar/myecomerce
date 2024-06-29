@@ -37,8 +37,8 @@ function Slider({ sliderList }) {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
+        {/* <CarouselPrevious />
+        <CarouselNext /> */}
       </Carousel>
 
       <BolivaresBar />

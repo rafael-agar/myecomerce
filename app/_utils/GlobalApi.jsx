@@ -21,6 +21,8 @@ const getCategory = () => axiosClient.get('/categories?populate=*');
 
 const getCategoryById = (id) => axiosClient.get(`/categories/${id}`);
 
+const getCategoryByName = (name) => axiosClient.get(`/categories/${name}`);
+
 const getSliders = () => axiosClient.get('/sliders?populate=*').then(resp => {
     return resp.data.data;
 });
@@ -119,5 +121,6 @@ export default {
     deleteCartItem,
     getPromo,
     getCategoryById,
-    getWhatsAppMessage
+    getWhatsAppMessage,
+    getCategoryByName
 }

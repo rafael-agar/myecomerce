@@ -38,6 +38,11 @@ function ProductItem({product}) {
           </div>
         </DialogTrigger>
         <DialogContent>
+        <DialogClose className='flex justify-center lg:hidden pt-4 lg:flex border-t-2 border-gray-300'>
+            <Button className='text-back font-bold' type="button" variant="secondary">
+              Seguir Comprando!
+            </Button>
+          </DialogClose>
           <DialogHeader>
             <DialogTitle>Detalles del Producto</DialogTitle>
             <DialogDescription>

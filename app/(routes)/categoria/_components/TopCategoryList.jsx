@@ -5,7 +5,7 @@ import Image from 'next/image'
 function TopCategoryList({categoryList, selectedCategory}) {
     
   return (
-    <div className='flex gap-1 mt-5 justify-center overflow-auto md:mx-10 overflow-x-hidde'>
+    <div className='flex gap-1 mt-5 justify-center overflow-x-auto  overflow-x-hidde'>
     {/* PENDIENTE VALIDDAAARRRRRRRRRRRRRRR */}
     {categoryList.map((category, index) => (
         // CAMBIAR COLOR

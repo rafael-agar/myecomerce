@@ -111,12 +111,13 @@ export default function ProductItemDetail({product}) {
             {/* $$ */}
             <h3 className='text-start font-bold text-3xl mt-5'>REF: <strong className='text-red-500'>${(productTotalPrice * productQuantity).toFixed(2)}</strong></h3>
             {/* BSF */}
-            <h3 className='text-start font-bold text-xl'>Bs. {(bolivaresPrecio * productTotalPrice).toFixed(2)}</h3>
+            <h3 className='text-start font-bold text-xl'>Bs. {(bolivaresPrecio * productTotalPrice).toLocaleString('es-VE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+            </h3>
             <div className='flex flex-col sm:items-baseline gap-3'>
               <div className='p-2 sm:w-[200px] justify-center border-2 border flex items-center gap-10 px-5'>
-                <button disabled={productQuantity == 1} onClick={handleDecrement}>-</button>
+                <button className='font-bold text-xl' disabled={productQuantity == 1} onClick={handleDecrement}>-</button>
                 <p>{productQuantity}</p>
-                <button disabled={productQuantity == 5} onClick={handleIncrement}>+</button>
+                <button className='font-bold text-xl' disabled={productQuantity == 5} onClick={handleIncrement}>+</button>
               </div>
               <Button onClick={()=>addToCart()} disabled={loading} className='flex w-100 sm:w-[200px] items-center justify-center gap-3 border border-input hover:bg-accent hover:text-accent-foreground'>
                 <ShoppingCart />

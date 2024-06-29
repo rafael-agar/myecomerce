@@ -5,7 +5,7 @@ import Link from 'next/link'
 function CategoryList({categoryList}) {
   return (
     <section className='mt-5 '>
-        <h2 className="text-primary font-bold text-2xl mt-10 mb-5 text-center">Compre por Categorías</h2>
+        <h2 className="text-primary font-bold text-2xl mt-5 mb-5 text-center">Compre por Categorías</h2>
         <div className='flex sm:flex-wrap gap-1 mt-5 justify-center overflow-auto md:mx-5 border-b-2 border-gray-100 pb-5'>
             {/* PENDIENTE VALIDDAAARRRRRRRRRRRRRRR */}
             {categoryList.map((category, index) => (

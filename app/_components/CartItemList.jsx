@@ -64,7 +64,7 @@ function CartItemList({cartItemList, onDeleteItem}) {
         
         <div className='absolute w-[90%] pe-3 bottom-6 flex flex-col'>
             <h2 className='text-lg font-bold flex justify-between'>Sub Total REF: <span>${subtotal}</span></h2>
-            <h5 className='text-sm flex justify-between'>Sub Total Bs: <span>${(subtotal * bolivaresPrecio).toFixed(2)}</span></h5>
+            <h5 className='text-sm flex justify-between'>Sub Total Bs: <span>{(subtotal * bolivaresPrecio).toLocaleString('es-VE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span></h5>
             <Button onClick={handleWhatsAppOrder}>COMPRAR POR WHATSAPP</Button>
         </div>
     </div>
