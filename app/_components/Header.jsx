@@ -148,12 +148,12 @@ return (
 
             {/* SEARCH */}
             <div className="flex flex-col items-center md:flex-row md:justify-center">
-            <div className="md:flex gap-3 items-center border rounded-full p-2 hidden md:flex">
+
 
               <SearchComponent />
-              Buscar...
+              Buscar
 
-            </div>
+
 
           </div>
 
