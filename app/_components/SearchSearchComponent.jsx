@@ -62,7 +62,9 @@ function SearchComponent() {
         <Search />
     </AlertDialogTrigger>
 
-    <AlertDialogContent>
+    <AlertDialogContent className=
+    'fixed transform top-0 translate-y-30' // Agregamos esta clase para desplazar el modal hacia arriba
+>
   <AlertDialogHeader>
     <AlertDialogTitle>Que deseas buscar?</AlertDialogTitle>
     <AlertDialogDescription>
