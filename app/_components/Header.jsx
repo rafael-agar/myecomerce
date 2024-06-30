@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, useEffect, useContext } from 'react'
 import Image from 'next/image'
-import { CircleUserRound, LayoutGrid, Search, ShoppingCart } from 'lucide-react'
+import { CircleUserRound, LayoutGrid, ShoppingCart } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import {
     DropdownMenu,
@@ -41,6 +41,7 @@ import {
   
 import CartItemList from './CartItemList'
 import { toast } from'sonner'
+import SearchComponent from './SearchSearchComponent'
   
 
 function Header() {
@@ -148,15 +149,10 @@ return (
             {/* SEARCH */}
             <div className="flex flex-col items-center md:flex-row md:justify-center">
             <div className="md:flex gap-3 items-center border rounded-full p-2 hidden md:flex">
-              <Search />
-              <input
-                type="text"
-                placeholder="Buscar"
-                className="outline-none"
-              />
-            </div>
-            <div className="flex gap-3 items-center border rounded-full p-2 md:hidden">
-              <Search />
+
+              <SearchComponent />
+              Buscar...
+
             </div>
 
           </div>
