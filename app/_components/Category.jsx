@@ -10,7 +10,7 @@ function Category({category}) {
             {/* PENDIENTE VALIDDAAARRRRRRRRRRRRRRR */}
             {category.map((category, index) => (
                 // CAMBIAR COLOR
-                <Link href={`/categoria/${category.attributes.name}`} className='flex flex-col justify-center items-center bg-degradado gap-2 p-2 rounded-lg group cursor-pointer hover:bg-blue-100 w-[150px] min-w-[100px]' key={index}>
+                <Link href={`/categories/${category.attributes.name}`} className='flex flex-col justify-center items-center bg-degradado gap-2 p-2 rounded-lg group cursor-pointer hover:bg-blue-100 w-[150px] min-w-[100px]' key={index}>
                     <Image src={category.attributes.icon.data[0].attributes.url}
                         alt='image' 
                         className='group-hover:scale-125 transition-all ease-in-out' 
