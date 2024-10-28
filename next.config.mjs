@@ -2,7 +2,7 @@
 const nextConfig = {
     reactStrictMode: false,
     images: {
-        domains: ['https://intuitive-deer-70ddaad1ab.strapiapp.com','intuitive-deer-70ddaad1ab.media.strapiapp.com'],
+        domains: ['https://diplomatic-books-d214c0dc6a.strapiapp.com/','https://diplomatic-books-d214c0dc6a.media.strapiapp.com/'],
     }
 };
 
